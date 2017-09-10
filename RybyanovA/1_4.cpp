@@ -1,29 +1,22 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
-vector<int>& factorization(int number, vector<int> &p) {
+int first_prime_div(int number) {
 	for (int i = 2; i*i <= number;) {
 		if (number % i == 0) {
-			p.push_back(i);
-			number /= i;
+			return i;
 		}
 		else i++;
 	}
-	p.push_back(number);
-	return p;
+	return number;
 }
 
 int main() {
 	int N;
 	cin >> N;
-	vector<int> fact;
-	fact = factorization(N, fact);
-	int res = 1;
-	for (int i = 1; i < fact.size(); i++) {
-		res *= fact[i];
-	}
-	cout << res << " " << N-res;
+	int div = first_prime_div(N);
+	int res = N / div;
+	cout << res << " " << N - res;
 	return 0; 
 }
