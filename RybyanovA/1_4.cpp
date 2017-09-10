@@ -15,8 +15,7 @@ int first_prime_div(int number) {
 int main() {
 	int N;
 	cin >> N;
-	int div = first_prime_div(N);
-	int res = N / div;
+	int res = N / first_prime_div(N);
 	cout << res << " " << N - res;
 	return 0; 
 }
